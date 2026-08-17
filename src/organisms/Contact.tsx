@@ -119,6 +119,7 @@ const Contact: React.FC = () => {
                                 }}>
                                     {
                                         faqItems.slice(0, Math.ceil(faqItems.length / 5)).map((x, index) => {
+                                            console.log(x)
                                             return (
                                                 <StyledNavButton onClick={() => setFaqItemsPage(index + 1)} $active={Boolean(index + 1 == faqItemsPage)}>{index}</StyledNavButton>
                                             )
