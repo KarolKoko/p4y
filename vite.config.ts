@@ -6,4 +6,5 @@ import dts from "vite-plugin-dts";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), svgr(), dts()],
+  base: '/p4y/'
 })
