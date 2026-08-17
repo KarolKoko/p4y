@@ -35,27 +35,27 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      - name: Vite Github Pages Deployer
+      - name: Deploy React to GitHub Pages
         # You may pin to the exact commit or the version.
-        # uses: skywarth/vite-github-pages-deployer@ec2e9a434804544a618cf2e0ffd9fc41ddf0b50c
-        uses: skywarth/vite-github-pages-deployer@v1.5.0
+        # uses: bitovi/github-actions-react-to-github-pages@4cf343888989e21112bce7e59156242a0e1defb3
+        uses: bitovi/github-actions-react-to-github-pages@v1.2.4
         with:
-          # Public base path string for vite, this affects the routing, history and asset links. Make sure to provide appropriately since Github Pages stores your app in a directory under a subdomain.
-          public_base_path: # optional, default is 
-          # Which folder do you want your Github Page to use as root directory. Usually it is your build output directory such as ./dist 
-          build_path: # optional, default is ./dist
-          # Node env that will be used for the installation of dependencies. It is imperative you use an environment that has 'vite' as dependency. Commonly, that is 'dev'.
-          install_phase_node_env: # optional, default is dev
-          # Node env that will be used for build phase.
-          build_phase_node_env: # optional, default is production
-          # Your preference of package manager: 'npm' and 'yarn' are possible values.
-          package_manager: # optional, default is npm
-          # Desired name for the Deployment environment. It is also the exposed artifact name which contains the build output (dist).
-          artifact_name: # optional, default is github-pages
-          # Controls the debug mode, boolean, true is for on. When turned on, it'll output certain information on certain steps. Mainly used for development, but use it as you please to inspect your env and variables.
-          debug_mode: # optional, default is false
-          # Controls the working directory for both install and build steps
-          working_path: # optional, default is ./        
+          # Specifies if this action should checkout the code
+          checkout: # optional, default is true
+          # Partially clone against a given filter. Overrides checkout-sparse-checkout if set. maps to actions/checkout inputs.checkout-filter
+          checkout-filter: # optional
+          # Do a sparse checkout on given patterns. Each pattern should be separated with new lines. maps to actions/checkout inputs.sparse-checkout
+          checkout-sparse-checkout: # optional
+          # Specifies whether to use cone-mode when doing a sparse checkout. maps to actions/checkout inputs.sparse-checkout-cone-mode
+          checkout-sparse-checkout-cone-mode: # optional, default is true
+          # Specifies the path of the static assets after building
+          path: # optional, default is dist
+          # Specifies the command to run the installation.
+          install_command: # optional, default is npm ci
+          # Specifies the command to run after the install command for the build
+          build_command: # optional, default is npm run build
+          # Specifies if the action should cache npm dependencies.
+          caching: # optional      
 
   # Deployment job
   deploy:
