@@ -56,8 +56,6 @@ jobs:
           debug_mode: # optional, default is false
           # Controls the working directory for both install and build steps
           working_path: # optional, default is ./        
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
